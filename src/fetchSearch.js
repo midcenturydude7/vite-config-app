@@ -1,4 +1,4 @@
-async function fetchSearch(queryKey) {
+async function fetchSearch({ queryKey }) {
   const { animal, location, breed } = queryKey[1];
 
   const res = await fetch(
