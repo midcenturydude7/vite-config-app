@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import fetchPet from "./fetchPet";
+import ErrorBoundary from "../errors/ErrorBoundary";
+import fetchPet from "../api/fetchPet";
 import Carousel from "./Carousel";
 
 const Details = () => {
@@ -33,4 +34,12 @@ const Details = () => {
   );
 };
 
-export default Details;
+function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <Details {...props} />
+    </ErrorBoundary>
+  );
+}
+
+export default DetailsErrorBoundary;
