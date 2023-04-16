@@ -9,7 +9,7 @@ const SearchParams = () => {
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
-  const breeds = useBreedList(animal);
+  const [breeds] = useBreedList(animal);
 
   useEffect(() => {
     requestPets();
@@ -47,6 +47,10 @@ const SearchParams = () => {
             id="animal"
             value={animal}
             onChange={(e) => {
+              setAnimal(e.target.value);
+              setBreed("");
+            }}
+            onBlur={(e) => {
               setAnimal(e.target.value);
               setBreed("");
             }}
